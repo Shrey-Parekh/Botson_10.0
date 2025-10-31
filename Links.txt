@@ -1,0 +1,23 @@
+CP2210x driver: 
+
+https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads 
+
+
+
+Boards to install in Arduino IDE: 
+
+Arduino ESP32 Boards by Arduino
+esp32 by Espressif Systems
+
+Libraries to install ( Navigation bar -> Tools -> Manage Libraries ) : 
+
+Arduino_ESP32_OTA by Arduino 
+RemoteXY by Evgenii Shemanuev
+
+Additional Boards Manager URL ( Navigation bar -> File -> Preferences -> Additional Boards Manager URLs -> paste the link in the field ): 
+
+https://espressif.github.io/arduino-esp32/package_esp32_index.json 
+
+
+
+
