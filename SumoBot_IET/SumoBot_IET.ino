@@ -18,10 +18,10 @@
 #pragma pack(push, 1)
 struct {
   uint8_t switch_01;  // Main Power Switch (1 = ON)
-  uint8_t button_01;  // Forward
-  uint8_t button_02;  // Left
-  uint8_t button_03;  // Right
-  uint8_t button_04;  // Backward
+  uint8_t button_01;  // Left
+  uint8_t button_02;  // Back
+  uint8_t button_03;  //Front
+  uint8_t button_04;  //Right
   uint8_t connect_flag;
 } RemoteXY;
 #pragma pack(pop)
@@ -70,30 +70,30 @@ void loop() {
   int rightSpeed = 0;
 
   if (RemoteXY.switch_01 == 1) {
-    // === DIRECTION LOGIC ===
+    // === CORRECTED DIRECTION LOGIC ===
     if (RemoteXY.button_01 == 1) {
-      // Forward
-      leftSpeed = 255;
-      rightSpeed = 255;
-      Serial.println("FORWARD");
-    } 
-    else if (RemoteXY.button_02 == 1) {
-      // Left
+      // Button 1 → LEFT TURN
       leftSpeed = -255;
       rightSpeed = 255;
       Serial.println("LEFT TURN");
     } 
-    else if (RemoteXY.button_03 == 1) {
-      // Right
-      leftSpeed = 255;
-      rightSpeed = -255;
-      Serial.println("RIGHT TURN");
-    } 
-    else if (RemoteXY.button_04 == 1) {
-      // Backward
+    else if (RemoteXY.button_02 == 1) {
+      // Button 2 → BACKWARD
       leftSpeed = -255;
       rightSpeed = -255;
       Serial.println("BACKWARD");
+    } 
+    else if (RemoteXY.button_03 == 1) {
+      // Button 3 → FORWARD
+      leftSpeed = 255;
+      rightSpeed = 255;
+      Serial.println("FORWARD");
+    } 
+    else if (RemoteXY.button_04 == 1) {
+      // Button 4 → RIGHT TURN
+      leftSpeed = 255;
+      rightSpeed = -255;
+      Serial.println("RIGHT TURN");
     } 
     else {
       // No button pressed
